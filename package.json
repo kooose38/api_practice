@@ -4,12 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test/models/findAll.test.js"
   },
   "author": "kooose",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
     "mocha": "^8.2.1"
+  },
+  "devDependencies": {
+    "power-assert": "^1.6.1"
   }
 }

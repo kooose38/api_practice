@@ -5,12 +5,12 @@ let num = 1;
 class Todo {
    constructor(title, body) {
       this.id = num++;
-      this.ttile = title;
+      this.title = title;
       this.body = body;
       this.createdAt = new Date();
       this.updatedAt = new Date();
    }
-}
+};
 
 for (let i = 0; i < 5; i++) {
    const index = i + 1;
@@ -22,7 +22,7 @@ for (let i = 0; i < 5; i++) {
 
 
 module.exports = {
-   getTodos: () => {
-      return todos
+   findAll: () => {
+      return [...todos]
    },
 }
