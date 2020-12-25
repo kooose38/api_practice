@@ -10,6 +10,7 @@ router
 router
    .route("/api/todo/:id")
    .put(controller.putTodo)
+   .delete(controller.deleteTodo)
 
 
 module.exports = router;

@@ -1,6 +1,5 @@
 const Todo = require("../../models/Todo");
 const assert = require("power-assert");
-const { equal } = require("power-assert");
 
 describe("removeTodo メソッドへのテスト", () => {
    it("functions?", () => {

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha test/models/findAll.test.js && mocha test/models/createTodo.test.js && mocha test/models/updatedTodo.test.js && mocha test/models/removeTodo.test.js",
-    "api": "mocha test/api/getTodo.test.js $$ mocha test/api/postTodo.test.js && mocha test/api/putTodo.test.js",
+    "api": "mocha test/api/getTodo.test.js $$ mocha test/api/postTodo.test.js && mocha test/api/putTodo.test.js && mocha test/api/deleteTodo.test.js",
     "start": "node-dev ./index.js"
   },
   "author": "kooose",

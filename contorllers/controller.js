@@ -28,4 +28,14 @@ module.exports = {
          res.status(400).json({ message: e.message })
       }
    },
+   deleteTodo: (req, res) => {
+      const id = parseInt(req.params.id, 10);
+
+      try {
+         const todo = Todo.removeTodo(id);
+         res.status(200).json(todo)
+      } catch (e) {
+         res.status(400).json({ message: e.message })
+      }
+   }
 }
