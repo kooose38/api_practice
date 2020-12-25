@@ -5,12 +5,12 @@ let num = 1;
 class Todo {
    constructor(title, body) {
       this.id = num++;
-      this.ttile = title;
+      this.title = title;
       this.body = body;
       this.createdAt = new Date();
       this.updatedAt = new Date();
    }
-}
+};
 
 for (let i = 0; i < 5; i++) {
    const index = i + 1;
@@ -22,7 +22,54 @@ for (let i = 0; i < 5; i++) {
 
 
 module.exports = {
-   getTodos: () => {
-      return todos
+   findAll: () => {
+      return [...todos]
    },
+   createTodo: (title, body) => {
+      if (!title) {
+         throw new Error("title?")
+      }
+      if (!body) {
+         throw new Error("body?")
+      }
+      const todo = new Todo(title, body);
+      todos.push(todo);
+
+      return todo;
+   },
+   updatedTodo: (id, title, body) => {
+      if (typeof id !== "number" || id < 1) {
+         throw new Error("id?")
+      }
+      if (!title) {
+         throw new Error("title?")
+      }
+      if (!body) {
+         throw new Error("body?")
+      }
+
+      const index = todos.findIndex(todo => todo.id === id)
+      if (index === -1) {
+         throw new Error("idが不正です")
+      }
+
+      const updateTodo = todos[index];
+      updateTodo.title = title;
+      updateTodo.body = body;
+      updateTodo.updatedAt = new Date();
+
+      return updateTodo;
+   },
+   removeTodo: (id) => {
+      if (typeof id !== "number" || id < 1) {
+         throw new Error("id?")
+      }
+      const index = todos.findIndex(todo => todo.id === id);
+      if (index === -1) {
+         throw new Error("idは不正です")
+      }
+      const removeTodo = todos.splice(index, 1)[0];
+
+      return removeTodo;
+   }
 }
