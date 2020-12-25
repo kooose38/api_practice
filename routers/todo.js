@@ -5,6 +5,7 @@ const controller = require("../contorllers/controller");
 router
    .route("/api/todo")
    .get(controller.getTodo)
+   .post(controller.postTodo)
 
 
 module.exports = router;
