@@ -25,4 +25,16 @@ module.exports = {
    findAll: () => {
       return [...todos]
    },
+   createTodo: (title, body) => {
+      if (!title) {
+         throw new Error("title?")
+      }
+      if (!body) {
+         throw new Error("body?")
+      }
+      const todo = new Todo(title, body);
+      todos.push(todo);
+
+      return todo;
+   },
 }

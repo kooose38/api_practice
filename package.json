@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/models/findAll.test.js",
+    "test": "mocha test/models/findAll.test.js && mocha test/models/createTodo.test.js",
     "api": "mocha test/api/getTodo.test.js",
     "start": "node-dev ./index.js"
   },
