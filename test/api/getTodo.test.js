@@ -1,17 +1,18 @@
 const assert = require("power-assert");
-const request = require("supertest");
-const app = require("../../app");
+const Helper = require("../requestHelper")
+
+
 
 describe("/api/todo API GETメソッド", () => {
    it("response body is correct?", async () => {
-      const res = await request(app)
-         .get("/api/todo")
-         .set("Accept", "application/json")
-         .expect("Content-Type", /application\/json/)
-         .expect(200)
+      const res = await Helper.request({
+         method: "get",
+         endPoint: "/api/todo",
+         statusCode: 200
+      });
 
 
-      const todos = res.body;
+      const todos = await res.body;
       assert.equal(Array.isArray(todos), true);
       todos.forEach(todo => {
          assert.equal(typeof todo.id === "number", true)

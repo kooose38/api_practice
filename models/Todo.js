@@ -37,4 +37,27 @@ module.exports = {
 
       return todo;
    },
+   updatedTodo: (id, title, body) => {
+      if (typeof id !== "number" || id < 1) {
+         throw new Error("id?")
+      }
+      if (!title) {
+         throw new Error("title?")
+      }
+      if (!body) {
+         throw new Error("body?")
+      }
+
+      const index = todos.findIndex(todo => todo.id === id)
+      if (index === -1) {
+         throw new Error("idが不正です")
+      }
+
+      const updateTodo = todos[index];
+      updateTodo.title = title;
+      updateTodo.body = body;
+      updateTodo.updatedAt = new Date();
+
+      return updateTodo;
+   }
 }

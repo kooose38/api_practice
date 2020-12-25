@@ -16,4 +16,16 @@ module.exports = {
          res.status(400).json({ message: e.message });
       }
    },
+   putTodo: (req, res) => {
+      try {
+         const id = parseInt(req.params.id, 10)
+         const title = req.body.title;
+         const body = req.body.body;
+
+         const todo = Todo.updatedTodo(id, title, body);
+         res.status(200).json(todo)
+      } catch (e) {
+         res.status(400).json({ message: e.message })
+      }
+   },
 }

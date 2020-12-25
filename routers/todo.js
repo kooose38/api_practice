@@ -7,5 +7,9 @@ router
    .get(controller.getTodo)
    .post(controller.postTodo)
 
+router
+   .route("/api/todo/:id")
+   .put(controller.putTodo)
+
 
 module.exports = router;

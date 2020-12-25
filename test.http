@@ -1,8 +1,9 @@
-POST http://localhost:5001/api/todo
+PUT http://localhost:5001/api/todo/2
 Content-Type:application/json
 
 {
-   "title":"Hello"
+   "title":"Hello",
+   "body":"hoge"
 }
 ###
 http://localhost:5001/api/todo
